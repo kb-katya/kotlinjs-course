@@ -6,9 +6,6 @@ import kotlinx.html.id
 fun RBuilder.rstock() =
     child(
         functionalComponent<RProps> {
-            h1 {
-                +"Акции"
-            }
             div {
                 attrs.id = "stock"
                 div {
@@ -24,6 +21,5 @@ fun RBuilder.rstock() =
                     +"Получай подарки с картой Автоклуба KFC"
                 }
             }
-
         }
     ) { }

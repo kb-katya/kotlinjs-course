@@ -4,28 +4,37 @@
     position: fixed;
     height: 100%;
     width: 260px;
-    background-color: red;
+    background-color: #ff3f43;
     overflow-x: hidden;
 }
 
 
 #navbar div {
     height: 50px;
-    background: darkred;
+    background: #de0024;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+#navbar div h1 {
+    border-bottom: 2px solid #3f3f3f ;
+    text-align: center;
+    width: 170px;
+    padding-bottom: 10px;
+
+}
+
 #navbar h1 {
-    color: white;
+    color: #c1c1c1;
     cursor: pointer;
 }
 
 #navbar img {
-    padding: 30px 0;
+    padding: 70px 0 10px 0;
     height: 80px;
     object-fit: cover;
+
 }
 
 #root section {

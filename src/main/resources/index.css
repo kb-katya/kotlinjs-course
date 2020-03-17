@@ -13,6 +13,7 @@ body,
 #root {
     display: flex;
     flex-direction: row;
+    font-family: Cera Pro;
 }
 
 #menu, #stock, #coupon {
@@ -31,7 +32,11 @@ body,
     height: 200px;
     margin: 5px;
     text-align: center;
+    border-bottom: 2px solid #777777;
+    border-right: 2px solid #777777;
 }
+
+
 
 #menu > div img {
     height: 80%;

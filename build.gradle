@@ -33,7 +33,7 @@ kotlin {
 }
 
 browserRun {
-    boolean open = false;
+    boolean open = true;
     int port = 8080
     devServer = devServer.copy(
             devServer.inline,

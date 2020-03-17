@@ -6,9 +6,6 @@ import kotlinx.html.id
 fun RBuilder.rcoupon() =
     child(
         functionalComponent<RProps> {
-            h1 {
-                +"Купоны"
-            }
             div {
                 attrs.id = "coupon"
                 div {

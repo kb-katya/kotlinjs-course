@@ -21,7 +21,7 @@ fun RBuilder.rnavbar(onClickTab: (index: Int) -> Unit) =
                     div {
                         h1 {
                             +tab.title
-                            attrs.onClickFunction = { event ->
+                            attrs.onClickFunction = { _ ->
                                 it.onClickTab(index)
                             }
                         }
