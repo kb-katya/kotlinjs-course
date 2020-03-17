@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: row;
+}
+
+#menu, #stock, #coupon {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+#root h1 {
+    margin: 20px;
+}
+
+#menu > div, #stock > div, #coupon > div {
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    text-align: center;
+}
+
+#menu > div img {
+    height: 80%;
+}
