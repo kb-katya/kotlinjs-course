@@ -6,10 +6,10 @@
 ### 2. Страница "Акции"
 ![2](./screenshots/2.png)
 ### 3. Страница "Купоны"
-![2](./screenshots/3.png)
+![3](./screenshots/3.png)
 ### 4. Страница "Корзина"
-![2](./screenshots/4.png)
+![4](./screenshots/4.PNG)
 ### 5. Страница "Добавление в корзину"
-![2](./screenshots/5.png)
+![5](./screenshots/5.PNG)
 ### 6. Страница "Удаление из корзины"
-![2](./screenshots/6.png)
+![6](./screenshots/6.PNG)
