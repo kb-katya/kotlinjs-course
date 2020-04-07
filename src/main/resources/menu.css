@@ -1,14 +1,13 @@
-
 #header {
-    display: flex;
-    flex-wrap: wrap; /*перенос строки */
-    justify-content: space-between; /*прижимает содержимое к краям */
-    align-items: center; /*выравнивает элементы по центру на вертикальной */
     background-color: #de0024;
 }
 
 #header .menu ul {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     list-style: none;
 }
 

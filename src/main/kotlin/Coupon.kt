@@ -3,7 +3,7 @@ import react.dom.*
 import kotlinx.html.id
 
 
-fun RBuilder.rcoupon() =
+fun RBuilder.fcoupon() =
     child(
         functionalComponent<RProps> {
             div {

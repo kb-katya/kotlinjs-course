@@ -3,7 +3,7 @@ import react.dom.*
 import kotlinx.html.id
 
 
-fun RBuilder.rstock() =
+fun RBuilder.fstock() =
     child(
         functionalComponent<RProps> {
             div {

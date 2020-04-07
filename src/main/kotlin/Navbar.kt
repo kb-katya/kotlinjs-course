@@ -9,7 +9,7 @@ interface RNavbarProps: RProps {
     var onClickTab: (Int) -> Unit
 }
 
-fun RBuilder.rnavbar(onClickTab: (index: Int) -> Unit) =
+fun RBuilder.fnavbar(onClickTab: (index: Int) -> Unit) =
     child(
         functionalComponent<RNavbarProps> {
             nav {

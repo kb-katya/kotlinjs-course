@@ -1,9 +1,12 @@
+import data.Dish
+import data.dishList
 import react.*
 import react.dom.section
 
 
 interface RAppState : RState {
     var activeTab: Int
+    var basket: ArrayList<Dish>
 }
 
 class RApp : RComponent<RProps, RAppState>() {
@@ -11,22 +14,40 @@ class RApp : RComponent<RProps, RAppState>() {
     init {
         state.apply {
             activeTab = 0
+            basket = arrayListOf()
         }
     }
 
+    val onClickAddDish = {
+        index: Int ->
+            setState {
+                basket.plusAssign(dishList[index])
+            }
+    }
+
+    val onClickRemoveDish = {
+        index: Int ->
+            setState {
+                basket.removeAt(index)
+            }
+    }
+
+
     override fun RBuilder.render() {
-        rnavbar { index: Int ->
+        fnavbar { index: Int ->
             setState {
                 activeTab = index
             }
         }
         section {
             if (state.activeTab == 0)
-                rmenu()
+                fmenu(onClickAddDish)
             else if (state.activeTab == 1)
-                rstock()
+                fstock()
             else if (state.activeTab == 2)
-                rcoupon()
+                fcoupon()
+            else if (state.activeTab == 3)
+                fbasket(state.basket, onClickRemoveDish)
         }
     }
 }
