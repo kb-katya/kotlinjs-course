@@ -16,27 +16,18 @@
     justify-content: center;
 }
 
-#navbar div h1 {
-    border-bottom: 2px solid #3f3f3f ;
-    text-align: center;
-    width: 170px;
-    padding-bottom: 10px;
-
-}
-
-#navbar h1 {
-    color: #c1c1c1;
-    cursor: pointer;
-}
+#navbar div a {
+     color: #ffff !important;
+     font-size: larger;
+     border-bottom: 2px solid #ff3f43;
+     text-align: center;
+     width: 170px;
+     padding-bottom: 10px;
+ }
 
 #navbar img {
     padding: 70px 0 10px 0;
     height: 80px;
     object-fit: cover;
-
-}
-
-#root section {
-    margin-left: 260px;
-    flex: 1;
+    cursor: pointer;
 }

@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none
+}
+
 html,
 body,
 #root {
@@ -16,30 +20,11 @@ body,
     font-family: Cera Pro, serif;
 }
 
-#menu, #stock, #coupon, #basket {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin: 20px;
+#root section {
+    margin-left: 260px;
+    flex: 1;
 }
 
-#root h1 {
-    margin: 20px;
-}
-
-#menu > div, #stock > div, #coupon > div, #basket > div {
-    width: 200px;
-    height: 200px;
-    margin: 5px;
-    text-align: center;
-    border-bottom: 2px solid #777777;
-    border-right: 2px solid #777777;
-    cursor: pointer;
-}
-
-#menu > div img, #basket > div img {
-    height: 80%;
+.active {
+    font-weight: bold;
 }

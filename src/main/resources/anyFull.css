@@ -1,0 +1,71 @@
+.object-full {
+    display: flex;
+    flex-direction: row;
+}
+
+.dish-block-img, .dish-block-order {
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 100px 50px;
+}
+
+.dish-block-img h1, .dish-block-order h1 {
+    font-size: 64px;
+    margin-bottom: 40px;
+}
+
+.dish-block-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    min-width: 400px;
+    max-width: 500px;
+}
+
+.dish-block-img img {
+    width: 100%;
+    height: 80%;
+}
+
+.dish-block-order {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    min-width: 300px;
+    max-width: 750px;
+}
+
+.dish-block-basket {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px 0 30px;
+}
+
+.dish-block-basket div {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.dish-block-basket span {
+    margin: 0 25px;
+}
+
+.dish-block-basket button {
+    padding: 15px 15px;
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+.dish-button-count {
+    min-width: 50px;
+}
+
+.dish-block-addition {
+    padding: 15px;
+    font-style: italic;
+}
