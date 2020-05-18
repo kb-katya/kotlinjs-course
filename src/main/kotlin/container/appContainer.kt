@@ -4,6 +4,7 @@ import react.*
 import component.*
 import react.redux.rConnect
 import data.*
+import hoc.withDisplayName
 
 val appContainer =
     rConnect<State, RProps, AppProps>(
@@ -18,5 +19,6 @@ val appContainer =
             pure = false  // side effect of React Route
         }
     )(
-        fApp().unsafeCast<RClass<AppProps>>()
+        withDisplayName("App", fApp())
+            .unsafeCast<RClass<AppProps>>()
     )

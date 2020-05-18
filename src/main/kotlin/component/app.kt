@@ -67,7 +67,7 @@ fun fApp() =
                 )
                 route("/basket",
                     exact = true,
-                    render = { basket() }
+                    render = { basketContainer { } }
                 )
                 route("/account",
                     exact = true,

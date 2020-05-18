@@ -32,12 +32,19 @@ fun workFormListReducer(state: WorkFormListState = mapOf(), action: RAction) =
 
 fun orderListReducer(state: OrderListState = mapOf(), action: RAction) =
     when (action) {
-        is AddDishToBasket -> state
         else -> state
     }
 
 fun orderBasketReducer(state: OrderBasketState = mapOf(), action: RAction) =
     when (action) {
+        is AddDishOrCouponToBasket -> state.toMutableMap().apply {
+            if (this[action.id] == null)
+                this[action.id] = action.count
+            else
+                this[action.id]?.let {
+                    this[action.id] = it + action.count
+                }
+        }
         else -> state
     }
 

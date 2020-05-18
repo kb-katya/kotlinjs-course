@@ -3,9 +3,9 @@ import enums.TypeDish
 
 data class Dish (
     val title: String,
-    val scr: String,
+    val src: String,
     val type: TypeDish,
-    val discription: String,
+    val description: String,
     val price: Int
 )
 

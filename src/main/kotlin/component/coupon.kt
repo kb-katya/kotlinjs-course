@@ -13,7 +13,15 @@ val fCoupon =
     functionalComponent<CouponProps> { props ->
         div {
             attrs.classes = setOf("object-list-item")
-            +props.coupon.code.toString()
+            img {
+                attrs.src = props.coupon.src
+            }
+            p("object-list-item-description") {
+                +props.coupon.description
+            }
+            strong {
+                +props.coupon.code.toString()
+            }
         }
     }
 

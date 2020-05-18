@@ -36,7 +36,7 @@ val dishFullContainer =
         mapDispatchToProps = { dispatch, ownProps  ->
             addToBasket = { count ->
                 {
-                    dispatch(AddDishToBasket(ownProps.obj.first, count))
+                    dispatch(AddDishOrCouponToBasket("D" + ownProps.obj.first, count))
                 }
             }
         }
@@ -61,12 +61,16 @@ val couponFullContainer =
         { state, ownProps ->
             obj = ownProps.obj.second
         },
-        { dispatch, _ ->
-            addToBasket = { { } }
+        { dispatch, ownProps ->
+            addToBasket = { count ->
+                {
+                    dispatch(AddDishOrCouponToBasket("C" + ownProps.obj.first, count))
+                }
+            }
         }
     )(
         withDisplayName(
-            "Coupon",
+            "Dish Full",
             fAnyFull(RBuilder::couponFull)
         )
             .unsafeCast<RClass<AnyFullProps<Coupon>>>()

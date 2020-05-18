@@ -1,6 +1,5 @@
 package component
 
-import kotlinx.html.classes
 import react.*
 import react.dom.*
 import react.router.dom.navLink

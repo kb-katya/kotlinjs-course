@@ -9,4 +9,4 @@ class CreateAccount(val account: Account) : RAction
 
 class SetActiveAccount(val account: Account?) : RAction
 
-class AddDishToBasket(val dish_id: Int, val count: Int) : RAction
+class AddDishOrCouponToBasket(val id: String, val count: Int) : RAction

@@ -1,9 +1,10 @@
 .object-full {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
-.dish-block-img, .dish-block-order {
+.object-block-img, .object-block-order {
     font-size: 24px;
     display: flex;
     flex-direction: column;
@@ -11,12 +12,16 @@
     padding: 100px 50px;
 }
 
-.dish-block-img h1, .dish-block-order h1 {
+.object-block-img h1, .object-block-order h1 {
     font-size: 64px;
     margin-bottom: 40px;
 }
 
-.dish-block-img {
+.object-block-img h2, .object-block-order h2 {
+    margin-bottom: 15px;
+}
+
+.object-block-img {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,12 +30,12 @@
     max-width: 500px;
 }
 
-.dish-block-img img {
+.object-block-img img {
     width: 100%;
     height: 80%;
 }
 
-.dish-block-order {
+.object-block-order {
     display: flex;
     justify-content: center;
     flex: 1;
@@ -38,34 +43,64 @@
     max-width: 750px;
 }
 
-.dish-block-basket {
+.block-basket-button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding: 15px 0 30px;
 }
 
-.dish-block-basket div {
+.block-basket-button div {
     display: flex;
     align-items: center;
     margin-right: 50px;
 }
 
-.dish-block-basket span {
+.block-basket-button span {
     margin: 0 25px;
 }
 
-.dish-block-basket button {
+.block-basket-button button {
     padding: 15px 15px;
     margin: 10px 0;
     font-size: 24px;
 }
 
-.dish-button-count {
+.block-button-count {
     min-width: 50px;
 }
 
 .dish-block-addition {
     padding: 15px;
     font-style: italic;
+}
+
+.coupon-block-banner {
+    background-color: #ff3f43;
+    border-radius: 8px;
+    padding: 1rem 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px 10px 5px;
+    color: #ffff;
+}
+
+.coupon-block-banner-code {
+    border-radius: 10px;
+    border: 1px solid #ffff;
+    align-items: center;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: transparent;
+}
+
+.coupon-block-dishes {
+    display: flex;
+    flex-direction: column;
+}
+
+.coupon-block-description {
+    padding: 15px;
 }

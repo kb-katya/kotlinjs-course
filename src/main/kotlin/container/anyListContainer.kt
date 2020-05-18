@@ -8,9 +8,7 @@ import react.*
 import react.redux.rConnect
 import redux.*
 
-interface AnyListDispatchProps : RProps {
-
-}
+interface AnyListDispatchProps : RProps { }
 
 interface AnyListStateProps<O> : RProps {
     var objs: Map<Int, O>
@@ -18,13 +16,13 @@ interface AnyListStateProps<O> : RProps {
 
 val dishListContainer =
     rConnect<
-            State,
+            State, // тип хранилища, которое мы присоединяем к компоненту
             RAction,
             WrapperAction,
-            RProps,
+            RProps, // собственные свойста dishListContainer'a
             AnyListStateProps<Dish>,
-            AnyListDispatchProps,
-            AnyListProps<Dish>
+            AnyListDispatchProps, //
+            AnyListProps<Dish> // свойства компонента, который оборачивается
             >(
         mapStateToProps = { state, _ ->
             objs = state.dishList.filter {
@@ -36,7 +34,7 @@ val dishListContainer =
         }
     )(
         withDisplayName(
-            "DishList",
+            "Dish List",
             fAnyList("/menu", "object-list", RBuilder::dish)
         )
             .unsafeCast<RClass<AnyListProps<Dish>>>()
@@ -55,12 +53,10 @@ val couponListContainer =
         { state, _ ->
             objs = state.couponList
         },
-        { dispatch, _ ->
-
-        }
+        { dispatch, _ -> }
     )(
         withDisplayName(
-            "CouponList",
+            "Coupon List",
             fAnyList("/coupon","object-list", RBuilder::coupon)
         )
             .unsafeCast<RClass<AnyListProps<Coupon>>>()

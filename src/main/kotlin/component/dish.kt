@@ -14,7 +14,7 @@ val fDish =
         div {
             attrs.classes = setOf("object-list-item")
             img {
-                attrs.src = props.dish.scr
+                attrs.src = props.dish.src
             }
             p {
                 +props.dish.title

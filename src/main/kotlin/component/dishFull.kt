@@ -25,46 +25,34 @@ class DishFull : RComponent<DishFullProps, DishFullState>() {
         }
     }
 
+    val incrementCount: (Event) -> Unit = {
+        setState { count++ }
+    }
+
+    val decrementCount: (Event) -> Unit = {
+        if (state.count > 1)
+            setState { count-- }
+    }
+
     fun RBuilder.blockImg() {
-        div("dish-block-img") {
+        div("object-block-img") {
             img {
-                attrs.src = props.dish.scr
+                attrs.src = props.dish.src
             }
             div("dish-block-addition") {
                 +"* В некоторых ресторанах KFC продукты и цены могут отличаться.."
             }
-
         }
     }
 
     fun RBuilder.blockOrder() {
-        div("dish-block-order") {
+        div("object-block-order") {
             h1 {
                 +props.dish.title
             }
-            div("dish-block-basket") {
-                div {
-                    button {
-                        attrs.classes = setOf("dish-button-count")
-                        attrs.onClickFunction = { if (state.count > 1) setState { count-- } }
-                        +"-"
-                    }
-                    span {
-                        +state.count.toString()
-                    }
-                    button {
-                        attrs.classes = setOf("dish-button-count")
-                        attrs.onClickFunction = { setState { count++ } }
-                        +"+"
-                    }
-                }
-                button {
-                    +"В корзину - ${props.dish.price * state.count} ₽"
-                    attrs.onClickFunction = props.addToBasket(state.count)
-                }
-            }
-            div("dish-block-discription") {
-                +props.dish.discription
+            basketButton(state.count, props.dish.price, props.addToBasket(state.count), incrementCount, decrementCount)
+            div("dish-block-description") {
+                +props.dish.description
             }
         }
     }

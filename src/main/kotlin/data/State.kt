@@ -14,7 +14,7 @@ typealias WorkFormListState = Map<Int, WorkForm>
 
 typealias OrderListState = Map<Int, Order>
 
-typealias OrderBasketState = Map<Int, Dish>
+typealias OrderBasketState = Map<String, Int>
 
 typealias ActiveAccountState = Account?
 

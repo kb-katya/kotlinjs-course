@@ -5,6 +5,7 @@ import component.*
 import react.redux.rConnect
 import data.*
 import enums.TypeDish
+import hoc.withDisplayName
 import org.w3c.dom.events.Event
 import redux.ChangeActiveTypeDish
 import redux.RAction
@@ -39,5 +40,9 @@ val menuContainer =
             }
         }
     )(
-        fMenu.unsafeCast<RClass<MenuProps>>()
+        withDisplayName(
+            "Menu",
+            fMenu
+        )
+            .unsafeCast<RClass<MenuProps>>()
     )
