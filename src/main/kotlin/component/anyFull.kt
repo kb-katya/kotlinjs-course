@@ -14,4 +14,3 @@ fun <O> fAnyFull(
     functionalComponent<AnyFullProps<O>> { props ->
         rComponent(props.obj, props.addToBasket)
     }
-

@@ -11,7 +11,6 @@ val appContainer =
         { state, _ ->
             dishList = state.dishList
             couponList = state.couponList
-            accountList = state.accountList
             orderBasket = state.orderBasket
             activeAccount = state.activeAccount
         },
@@ -19,6 +18,9 @@ val appContainer =
             pure = false  // side effect of React Route
         }
     )(
-        withDisplayName("App", fApp())
+        withDisplayName(
+            "App",
+            fApp()
+        )
             .unsafeCast<RClass<AppProps>>()
     )

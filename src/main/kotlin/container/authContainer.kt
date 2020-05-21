@@ -11,7 +11,7 @@ import redux.SetActiveAccount
 import redux.WrapperAction
 
 interface AuthDispatchProps : RProps {
-    var login: (Account) -> (Event) -> Unit
+    var login: (Pair<Int, Account>) -> (Event) -> Unit
     var registration: (Account) -> (Event) -> Unit
 }
 

@@ -8,15 +8,11 @@ typealias CouponListState = Map<Int, Coupon>
 
 typealias AccountListState = Map<Int, Account>
 
-typealias NewsListState = Map<Int, News>
-
-typealias WorkFormListState = Map<Int, WorkForm>
-
 typealias OrderListState = Map<Int, Order>
 
 typealias OrderBasketState = Map<String, Int>
 
-typealias ActiveAccountState = Account?
+typealias ActiveAccountState = Pair<Int, Account>?
 
 typealias ActiveTypeDishState = TypeDish
 
@@ -24,8 +20,6 @@ data class State(
     val dishList: DishListState,
     val couponList: CouponListState,
     val accountList: AccountListState,
-    val newsList: NewsListState,
-    val workFormList: WorkFormListState,
     val orderList: OrderListState,
     val orderBasket: OrderBasketState,
     val activeAccount: ActiveAccountState,
@@ -39,8 +33,6 @@ fun initialState() =
     State(
         dishList,
         couponList,
-        mapOf(),
-        mapOf(),
         mapOf(),
         mapOf(),
         mapOf(),

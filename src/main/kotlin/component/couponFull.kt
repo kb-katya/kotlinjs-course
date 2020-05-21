@@ -1,8 +1,6 @@
 package component
 
 import data.*
-import kotlinx.html.classes
-import kotlinx.html.js.onClickFunction
 import org.w3c.dom.events.Event
 import react.*
 import react.dom.*
@@ -48,7 +46,7 @@ class CouponFull : RComponent<CouponFullProps, CouponFullState>() {
     fun RBuilder.couponOrder() {
         div("object-block-order") {
             h1 {
-                +"Купон: №${props.coupon.code}"
+                +"Купон №${props.coupon.code}"
             }
             h2 {
                 +"В купон входит:"
@@ -56,7 +54,7 @@ class CouponFull : RComponent<CouponFullProps, CouponFullState>() {
             div("coupon-block-dishes") {
                 props.coupon.foodList.map {
                     navLink("/menu/${it.key}") {
-                        +"Блюдо ${it.key}: ${it.value} шт."
+                        +"Блюдо №${it.key}: ${it.value} шт."
                     }
                 }
             }

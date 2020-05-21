@@ -13,7 +13,7 @@ import org.w3c.dom.events.Event
 
 interface AuthProps : RProps {
     var accountList: Map<Int, Account>
-    var login: (Account) -> (Event) -> Unit
+    var login: (Pair<Int, Account>) -> (Event) -> Unit
     var registration: (Account) -> (Event) -> Unit
 }
 
@@ -41,13 +41,14 @@ class Auth : RComponent<AuthProps, AuthState>() {
 
     fun getTarget(event: Event) = event.target?.asJsObject().unsafeCast<HTMLInputElement>()
 
-    fun RBuilder.field(label: String, value: String, type: InputType, onChange: (Event) -> Unit) {
+    fun RBuilder.field(label: String, value: String, placeholder: String = "", type: InputType, onChange: (Event) -> Unit) {
         label {
             +label
         }
         input {
             attrs.value = value
             attrs.onChangeFunction = onChange
+            attrs.placeholder = placeholder
             attrs.type = type
         }
     }
@@ -57,10 +58,10 @@ class Auth : RComponent<AuthProps, AuthState>() {
             it.phoneNumber == state.signInPhoneNumber && it.password == state.signInPassword
         }
         val onClickLoginError: (Event) -> Unit = {
-            console.error("Account not found")
+            console.error("Аккаунт не найден!")
         }
         if (account.isNotEmpty())
-            props.login(account.get(account.keys.first())!!)
+            props.login(account.keys.first() to account[account.keys.first()]!!)
         else
             onClickLoginError
     }
@@ -70,10 +71,10 @@ class Auth : RComponent<AuthProps, AuthState>() {
             it.phoneNumber == state.signUpPhoneNumber
         }
         val onClickRegistrationError: (Event) -> Unit = {
-            console.error("Registration error")
+            console.error("Ошибка при регистрации!")
         }
         if (account.isEmpty() && state.signUpPassword == state.signUpConfPassword
-            && state.signUpPassword.length > 6 && (state.signUpPhoneNumber.length == 10
+            && state.signUpPassword.length > 6 && (state.signUpPhoneNumber.length == 11
             && state.signUpName.length > 2)
         )
             props.registration(
@@ -89,14 +90,14 @@ class Auth : RComponent<AuthProps, AuthState>() {
 
     fun RBuilder.signIn() {
         div {
-            h1 {
+            h2 {
                 +"Войти в аккаунт"
             }
-            field("Номер телефона", state.signInPhoneNumber, InputType.text) {
+            field("Номер телефона", state.signInPhoneNumber,"", InputType.text) {
                 val target = getTarget(it)
                 setState { signInPhoneNumber = target.value }
             }
-            field("Пароль", state.signInPassword, InputType.password) {
+            field("Пароль", state.signInPassword, "", InputType.password) {
                 val target = getTarget(it)
                 setState { signInPassword = target.value }
             }
@@ -110,22 +111,22 @@ class Auth : RComponent<AuthProps, AuthState>() {
 
     fun RBuilder.signUp() {
         div {
-            h1 {
+            h2 {
                 +"Зарегистрировать аккаунт"
             }
-            field("Имя", state.signUpName, InputType.text) {
+            field("Имя", state.signUpName, "Имя должно быть больше 2 букв", InputType.text) {
                 val target = getTarget(it)
                 setState { signUpName = target.value }
             }
-            field("Номер телефона", state.signUpPhoneNumber, InputType.text) {
+            field("Номер телефона", state.signUpPhoneNumber, "Введите 11 значный номер телефона", InputType.text) {
                 val target = getTarget(it)
                 setState { signUpPhoneNumber = target.value }
             }
-            field("Пароль", state.signUpPassword, InputType.password) {
+            field("Пароль", state.signUpPassword, "Пароль должен быть больше 6 символов", InputType.password) {
                 val target = getTarget(it)
                 setState { signUpPassword = target.value }
             }
-            field("Подтверждение пароля", state.signUpConfPassword, InputType.password) {
+            field("Подтверждение пароля", state.signUpConfPassword, "", InputType.password) {
                 val target = getTarget(it)
                 setState { signUpConfPassword = target.value }
             }
@@ -148,7 +149,7 @@ class Auth : RComponent<AuthProps, AuthState>() {
 
 fun RBuilder.auth(
     accountList: Map<Int, Account>,
-    login: (Account) -> (Event) -> Unit,
+    login: (Pair<Int, Account>) -> (Event) -> Unit,
     registration: (Account) -> (Event) -> Unit
 ) = child(Auth::class) {
     attrs.accountList = accountList

@@ -1,0 +1,33 @@
+#navbar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    width: 260px;
+    background-color: #ff3f43;
+    overflow-x: hidden;
+}
+
+#navbar div {
+    height: 50px;
+    background: #de0024;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar div a {
+     color: #ffff !important;
+     font-size: larger;
+     border-bottom: 2px solid #ff3f43;
+     text-align: center;
+     width: 170px;
+     padding-bottom: 10px;
+ }
+
+#navbar img {
+    padding: 70px 0 10px 0;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+}

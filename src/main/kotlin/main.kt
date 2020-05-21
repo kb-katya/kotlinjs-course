@@ -8,7 +8,7 @@ import kotlin.browser.document
 
 
 val store: Store<State, RAction, WrapperAction> = createStore(
-    rootReducer(),
+    ::rootReducer,
     initialState(),
     compose(
         rEnhancer(),

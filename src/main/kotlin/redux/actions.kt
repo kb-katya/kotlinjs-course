@@ -7,6 +7,10 @@ class ChangeActiveTypeDish(val typeDish: TypeDish) : RAction
 
 class CreateAccount(val account: Account) : RAction
 
-class SetActiveAccount(val account: Account?) : RAction
+class SetActiveAccount(val account: Pair<Int, Account>?) : RAction
 
 class AddDishOrCouponToBasket(val id: String, val count: Int) : RAction
+
+class ResetBasket() : RAction
+
+class SubmitBasket(val order: Order) : RAction

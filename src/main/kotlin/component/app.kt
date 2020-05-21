@@ -12,9 +12,8 @@ import react.router.dom.switch
 interface AppProps: RProps {
     var dishList: DishListState
     var couponList: CouponListState
-    var accountList: AccountListState
     var orderBasket: OrderBasketState
-    var activeAccount: Account?
+    var activeAccount: ActiveAccountState
 }
 
 interface RouteNumberResult : RProps {
@@ -61,10 +60,6 @@ fun fApp() =
                         }
                     )
                 )
-                route("/news",
-                    exact = true,
-                    render = { news() }
-                )
                 route("/basket",
                     exact = true,
                     render = { basketContainer { } }
@@ -75,7 +70,7 @@ fun fApp() =
                         if (props.activeAccount == null)
                             authContainer { }
                         else
-                            account()
+                            accountContainer { }
                     }
                 )
             }

@@ -3,12 +3,11 @@ package container
 import component.*
 import data.*
 import hoc.withDisplayName
-import org.w3c.dom.events.Event
 import react.*
 import react.redux.rConnect
 import redux.*
 
-interface AnyListDispatchProps : RProps { }
+interface AnyListDispatchProps : RProps
 
 interface AnyListStateProps<O> : RProps {
     var objs: Map<Int, O>
@@ -21,7 +20,7 @@ val dishListContainer =
             WrapperAction,
             RProps, // собственные свойста dishListContainer'a
             AnyListStateProps<Dish>,
-            AnyListDispatchProps, //
+            AnyListDispatchProps,
             AnyListProps<Dish> // свойства компонента, который оборачивается
             >(
         mapStateToProps = { state, _ ->
@@ -35,7 +34,7 @@ val dishListContainer =
     )(
         withDisplayName(
             "Dish List",
-            fAnyList("/menu", "object-list", RBuilder::dish)
+            fAnyList("/menu", "Меню","object-list", RBuilder::dish)
         )
             .unsafeCast<RClass<AnyListProps<Dish>>>()
     )
@@ -57,7 +56,7 @@ val couponListContainer =
     )(
         withDisplayName(
             "Coupon List",
-            fAnyList("/coupon","object-list", RBuilder::coupon)
+            fAnyList("/coupon","Купоны","object-list", RBuilder::coupon)
         )
             .unsafeCast<RClass<AnyListProps<Coupon>>>()
     )
