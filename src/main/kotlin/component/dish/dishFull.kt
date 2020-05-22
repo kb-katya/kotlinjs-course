@@ -1,5 +1,6 @@
-package component
+package component.dish
 
+import component.basketButton
 import data.*
 import org.w3c.dom.events.Event
 import react.*

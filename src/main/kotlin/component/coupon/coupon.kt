@@ -1,4 +1,4 @@
-package component
+package component.coupon
 
 import data.*
 import kotlinx.html.classes

@@ -5,6 +5,7 @@ import react.dom.*
 import react.router.dom.navLink
 
 interface AnyListProps<O> : RProps {
+    var isAdmin: Boolean
     var objs: Map<Int, O>
 }
 
@@ -15,9 +16,15 @@ fun <O> fAnyList(
     rObj: RBuilder.(O) -> ReactElement
 ) =
     functionalComponent<AnyListProps<O>> { props ->
-        h1("object-list-h1"){
+        h1("object-list-h"){
             +title
         }
+        if(props.isAdmin)
+            h2("object-list-h") {
+                navLink(path + "_add") {
+                    +"Добавить"
+                }
+            }
         div(cssClass) {
             props.objs.map { obj ->
                 navLink("$path/${obj.key}") {

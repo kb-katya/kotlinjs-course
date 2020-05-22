@@ -1,4 +1,4 @@
-package component
+package component.dish
 
 import data.*
 import kotlinx.html.*

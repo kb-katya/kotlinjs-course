@@ -1,6 +1,8 @@
 package container
 
 import component.*
+import component.coupon.couponFull
+import component.dish.dishFull
 import data.*
 import hoc.withDisplayName
 import org.w3c.dom.events.Event

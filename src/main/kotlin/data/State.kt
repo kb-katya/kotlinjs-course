@@ -33,7 +33,7 @@ fun initialState() =
     State(
         dishList,
         couponList,
-        mapOf(),
+        accountList,
         mapOf(),
         mapOf(),
         null,

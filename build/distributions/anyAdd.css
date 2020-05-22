@@ -1,0 +1,43 @@
+.any-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+    padding: 15px;
+}
+
+.any-add-dish-list {
+    padding: 10px 0;
+}
+
+.any-add button {
+    min-width: 15px;
+}
+
+.any-add label {
+    padding: 5px 0;
+    min-width: 300px;
+}
+
+.any-add span {
+    padding: 0 15px;
+}
+
+.any-add-dish-list-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.any-add-button {
+    padding: 0 15px;
+    min-height: 35px;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.any-add select {
+    margin: 5px 0;
+    width: 173px;
+}

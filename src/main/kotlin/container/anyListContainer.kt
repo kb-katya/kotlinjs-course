@@ -1,15 +1,20 @@
 package container
 
 import component.*
+import component.coupon.coupon
+import component.dish.dish
 import data.*
 import hoc.withDisplayName
 import react.*
 import react.redux.rConnect
 import redux.*
 
-interface AnyListDispatchProps : RProps
+interface AnyListDispatchProps : RProps {
+
+}
 
 interface AnyListStateProps<O> : RProps {
+    var isAdmin: Boolean
     var objs: Map<Int, O>
 }
 
@@ -24,6 +29,11 @@ val dishListContainer =
             AnyListProps<Dish> // свойства компонента, который оборачивается
             >(
         mapStateToProps = { state, _ ->
+            isAdmin =
+                if (state.activeAccount == null)
+                    false
+                else
+                    state.activeAccount.second.isAdmin
             objs = state.dishList.filter {
                 it.value.type == state.activeTypeDish
             }
@@ -50,6 +60,11 @@ val couponListContainer =
             AnyListProps<Coupon>
             >(
         { state, _ ->
+            isAdmin =
+                if (state.activeAccount == null)
+                    false
+                else
+                    state.activeAccount.second.isAdmin
             objs = state.couponList
         },
         { dispatch, _ -> }

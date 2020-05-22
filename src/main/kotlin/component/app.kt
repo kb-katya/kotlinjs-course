@@ -2,6 +2,8 @@ package component
 
 import data.*
 import container.*
+import couponAddContainer
+import dishAddContainer
 import react.*
 import react.dom.p
 import react.dom.section
@@ -73,6 +75,16 @@ fun fApp() =
                             accountContainer { }
                     }
                 )
+                if (props.activeAccount !== null && props.activeAccount!!.second.isAdmin) {
+                    route("/menu_add",
+                        exact = true,
+                        render = { dishAddContainer { } }
+                    )
+                    route("/coupon_add",
+                        exact = true,
+                        render = { couponAddContainer { } }
+                    )
+                }
             }
         }
     }
@@ -87,5 +99,5 @@ fun <O> RBuilder.renderObject(
         if (obj != null)
             rElement(num, obj)
         else
-            p { +"Object not found" }
+            p { +"Страница не найдена!" }
     }

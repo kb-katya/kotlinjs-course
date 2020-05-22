@@ -7,3 +7,5 @@ data class Account (
     var numberOfPoints: Int = 0,
     val isAdmin: Boolean = false
 )
+
+val accountList = mapOf(0 to Account("Admin", "88005553535", "AdminPassword", isAdmin = true))
