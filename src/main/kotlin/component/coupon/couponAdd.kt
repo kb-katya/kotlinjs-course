@@ -103,8 +103,8 @@ class CouponAdd : RComponent<CouponAddProps, CouponAddState>() {
         val foodList = state.foodList.filter {
             it.value > 0
         }
-        if (price !== null && code !== null && state.code.length == 4 && foodList.size > 0
-            && state.src.length > 0 && state.description.length > 0)
+        if (price !== null && price > 0 && code !== null && code > 0 && state.code.length == 4
+                && foodList.size > 0 && state.src.length > 0 && state.description.length > 0)
             props.createCoupon(Coupon(code, state.src, foodList, state.description, price))
         else
             onClickCreateCouponError

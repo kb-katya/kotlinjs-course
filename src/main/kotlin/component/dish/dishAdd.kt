@@ -52,8 +52,8 @@ class DishAdd : RComponent<DishAddProps, DishAddState>() {
             console.error("Ошибка при создании блюда!")
         }
         val price = state.price.toIntOrNull()
-        if (price !== null && state.src.length > 0 && state.description.length > 0
-            && state.title.length > 0)
+        if (price !== null && price > 0 && state.src.length > 0
+                && state.description.length > 0 && state.title.length > 0)
             props.createDish(Dish(state.title, state.src, state.type, state.description, price))
         else
             onClickCreateDishError
@@ -88,7 +88,6 @@ class DishAdd : RComponent<DishAddProps, DishAddState>() {
             select {
                 tabList.mapIndexed { index, tab ->
                     option {
-                        attrs.selected = index == 0
                         attrs.value = index.toString()
                         +tab.title
                     }
