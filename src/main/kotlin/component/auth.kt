@@ -24,6 +24,7 @@ interface AuthState : RState {
     var signUpPhoneNumber: String
     var signUpPassword: String
     var signUpConfPassword: String
+    var isOpen: Boolean
 }
 
 class Auth : RComponent<AuthProps, AuthState>() {
@@ -105,6 +106,22 @@ class Auth : RComponent<AuthProps, AuthState>() {
                 attrs.type = InputType.button
                 attrs.value = "Войти"
                 attrs.onClickFunction = onClickLogin()
+            }
+            h5 {
+                +"Нажмите, чтобы посмотреть данные аккаунта администратора"
+                if (state.isOpen) {
+                    p {
+                        +"Номер телефона: 88005553535"
+                    }
+                    p {
+                        +"Пароль: AdminPassword"
+                    }
+                }
+                attrs.onClickFunction = {
+                    setState {
+                        isOpen = !state.isOpen
+                    }
+                }
             }
         }
     }

@@ -25,3 +25,7 @@
 #auth div h2 {
     margin-bottom: 10px;
 }
+
+#auth div h5 {
+    font-size: 12px;
+}
